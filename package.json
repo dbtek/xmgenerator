@@ -1,0 +1,20 @@
+{
+  "name": "xmgenerator",
+  "version": "1.0.0",
+  "main": "cli.js",
+  "license": "MIT",
+  "description": "Generates exams with random questions from source data.",
+  "repository": "https://github.com/dbtek/xmgenerator",
+  "author": "Ismail Demirbilek <ce.demirbilek@gmail.com>",
+  "private": true,
+  "bin": {
+    "xmgenerator": "cli.js"
+  },
+  "dependencies": {
+    "commander": "^2.19.0",
+    "csv-parse": "^4.3.0",
+    "prompts": "^2.0.1",
+    "pug": "^2.0.3",
+    "puppeteer": "^1.11.0"
+  }
+}

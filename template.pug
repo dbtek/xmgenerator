@@ -1,0 +1,63 @@
+- choiceMarks = ['A', 'B', 'C', 'D', 'E']
+
+style.
+  body {
+    font-size: 12pt;
+  }
+
+  @page {
+    margin: 15mm 10mm 15mm 10mm;
+    size: 210mm 297mm;
+    -relaxed-page-width: 210mm;
+    -relaxed-page-height: 297mm;
+  }
+
+  .header {
+    text-align: center
+  }
+
+  .content {
+    display: table;
+    flex-wrap: wrap
+  }
+
+  .question {
+    display: inline-block;
+    width: calc(50% - 4pt);
+    page-break-before: always;
+    margin: 2pt;
+  }  
+  .question p {
+    font-weight: bold;
+  }
+  .question .blank {
+    height: 40pt
+  }
+
+  .answers .answer {
+    margin-right: 10pt;
+  }
+
+mixin question(q, num)
+  .question
+    p #{num}. #{q.content}
+    block
+    
+mixin choices(q)
+  div.answers 
+    each answer,i in q.answers
+      div.answer
+        strong #{choiceMarks[i]})
+        |  #{answer}
+
+body
+  .header
+    h3 #{program.course} - Seviye #{program.level}
+    h4= program.subject
+  .content
+    each q, index in questions
+      +question(q, index + 1)
+        if program.multipleChoice
+          +choices(q)
+        else
+          div.blank
