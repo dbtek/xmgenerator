@@ -72,8 +72,8 @@ async function generateExam (options) {
 }
 
 /**
-* Generates PDF with questions
-*/
+ * Generates PDF with questions
+ */
 async function generatePDF (questions, options) {
   // generate html filte
   const html = pug.renderFile('./template.pug', { questions, program: options })
@@ -111,10 +111,10 @@ function makeQuestion (data) {
 }
 
 /**
-* Extracts data by parsing CSV.
-* @param {String} path Path to csv
-* @returns {Promise}
-*/
+ * Extracts data by parsing CSV.
+ * @param {String} path Path to csv
+ * @returns {Promise}
+ */
 function parseData (path) { 
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf8', (err, _data) => {
@@ -129,10 +129,10 @@ function parseData (path) {
 }
 
 /**
-* Fisher-Yates shuffle algorithm
-* @param {Array} array Input array
-* @returns {Array} Shuffled array
-*/
+ * Fisher-Yates shuffle algorithm
+ * @param {Array} array Input array
+ * @returns {Array} Shuffled array
+ */
 function shuffle (array) {
   var currentIndex = array.length, temporaryValue, randomIndex
   
