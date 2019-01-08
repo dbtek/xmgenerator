@@ -49,6 +49,8 @@ const htmlPath = path.resolve('imtihan.html')
   }]
 
   const options = await prompts(questions)
+  
+  console.log('Generating exam...')
   await generateExam({ ...options, ...program, questions: data, })
   console.log(`Exam saved at: ${program.output}`)
 })()
